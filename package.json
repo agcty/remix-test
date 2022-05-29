@@ -8,16 +8,21 @@
     "build": "remix build",
     "dev:remix": "remix watch",
     "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
-    "dev": "remix build && run-p dev:*",
+    "dev": "remix build && concurrently 'pnpm:dev:*'",
     "start": "cross-env NODE_ENV=production npm run dev:wrangler"
   },
   "dependencies": {
+    "@react-three/drei": "^9.11.3",
+    "@react-three/fiber": "^8.0.19",
     "@remix-run/cloudflare": "^1.5.1",
     "@remix-run/cloudflare-pages": "^1.5.1",
     "@remix-run/react": "^1.5.1",
+    "concurrently": "^7.2.1",
     "cross-env": "^7.0.3",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react": "18.2.0-next-3133dfa6e-20220526",
+    "react-dom": "18.2.0-next-3133dfa6e-20220526",
+    "remix-utils": "^3.2.0",
+    "three": "^0.141.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.10.0",

@@ -1,32 +1,19 @@
+import { Box } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { ClientOnly } from "remix-utils";
+
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial adsfasdf
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+
+      <ClientOnly>
+        {() => (
+          <Canvas>
+            <Box args={[3, 3, 3]}></Box>
+          </Canvas>
+        )}
+      </ClientOnly>
     </div>
   );
 }
